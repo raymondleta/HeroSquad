@@ -24,3 +24,16 @@
 
     <button type="submit" class="btn btn-default">Add Hero</button>
 </form>
+
+<h1>Hero list!</h1>
+#if ($hero)
+<p>Created Hero</p>
+<p>Name: $hero.getName()</p>
+<p>Age: $hero.getAge()</p>
+<p>Special power: $hero.getSpecialPower()</p>
+<p>Weakness: $hero.getWeakness()</p>
+<p>Gender: $hero.getGender()</p>
+#else
+<p>No hero created!</p>
+#end
+
