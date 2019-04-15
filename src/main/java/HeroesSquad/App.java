@@ -19,5 +19,20 @@ public class App {
             model.put("template", "templates/index.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+        post("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+
+            String name = request.queryParams("name");
+            String age = request.queryParams("age");
+            String specialPower = request.queryParams("specialPower");
+            String weakness = request.queryParams("weakness");
+            String gender = request.queryParams("gender");
+            Hero newHero = new Hero(name, Integer.parseInt(age), specialPower, weakness, gender);
+            request.session().attribute("hero", newHero);
+
+            model.put("template", "templates/success.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
