@@ -1,0 +1,22 @@
+<div class="well">
+#if($squad)
+<h1>$squad.getName()</h1>
+
+<ul>
+    #foreach($hero in $squad.getHeroes())
+    <li>
+    <p>Name: $hero.getName()</p>
+    <p>Age: $hero.getAge()</p>
+    <p>SpecialPower: $hero.getSpecialPower()</p>
+    <p>Weakness: $hero.getWeakness()</p>
+    <p>Gender: $hero.getGender()</p>
+    </li>
+    #end
+</ul>
+#else
+<em><p>Oops! We can't seem to find that Squad.</p></em>
+#end
+
+<a href="/squads/$squad.getId()/heroes/new">Add your Hero</a>
+<a href="/squads">All Squads</a>
+</div>

@@ -8,8 +8,9 @@ public class Hero {
     private String specialPower;
     private String weakness;
     public String gender;
-    private static List<Hero> instances = new ArrayList<Hero>();
     private int Id;
+    private static List<Hero> instances = new ArrayList<Hero>();
+
 
     public Hero(String name, int age, String specialPower, String weakness, String gender) {
         this.name = name;
@@ -17,8 +18,9 @@ public class Hero {
         this.specialPower = specialPower;
         this.weakness = weakness;
         this.gender = gender;
-        instances.add(this);
         Id = instances.size();
+        instances.add(this);
+
     }
     public static Hero find(int id) {
         return instances.get(id - 1);

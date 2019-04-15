@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Squad {
     private String Name;
     private static List<Squad> instances = new ArrayList<Squad>();
-    private int Id;
     private List<Hero> heroes;
+    private int Id;
 
     public Squad(String name) {
         Name = name;
@@ -24,11 +24,15 @@ public class Squad {
     public static void clear() {
         instances.clear();
     }
+    public static Squad find(int id) {
+        try {
+            return instances.get(id - 1);
+        } catch (IndexOutOfBoundsException exception) {
+            return null;
+        }
+    }
     public int getId() {
         return Id;
-    }
-    public static Squad find(int id) {
-        return instances.get(id - 1);
     }
     public List<Hero> getHeroes() {
         return heroes;
@@ -36,4 +40,5 @@ public class Squad {
     public void addHero(Hero hero) {
         heroes.add(hero);
     }
+
 }

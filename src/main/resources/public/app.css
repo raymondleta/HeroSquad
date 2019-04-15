@@ -1,0 +1,9 @@
+body{
+    background-image: url("https://o.aolcdn.com/images/dims?quality=85&image_uri=https%3A%2F%2Fo.aolcdn.com%2Fimages%2Fdims%3Fcrop%3D5708%252C4134%252C0%252C0%26quality%3D85%26format%3Djpg%26resize%3D1600%252C1159%26image_uri%3Dhttp%253A%252F%252Fo.aolcdn.com%252Fhss%252Fstorage%252Fmidas%252Ff595fd83478ace5bc5ff3b76c84850e9%252F206255799%252Fandromeda-galaxy-picture-id680804035%26client%3Da1acac3e1b3290917d92%26signature%3D1e1621698eb1bb62b9edca5efe2c4ebf5df1980a&client=amp-blogside-v2&signature=22f3d0ee51ff60520121896aee73b88b1b975ceb");
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+}
+.wells{
+    height: 50%;
+}
