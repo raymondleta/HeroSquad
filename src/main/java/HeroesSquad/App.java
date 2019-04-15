@@ -18,7 +18,20 @@ public class App {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/index.vtl");
-            model.put("heroes", request.session().attribute("heroes"));
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("heroes/new", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("template", "templates/hero-form.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
+        get("/heroes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("Heroes", Hero.all());
+//            model.put("heroes", request.session().attribute("heroes"));
+            model.put("template", "templates/heroes.vtl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 

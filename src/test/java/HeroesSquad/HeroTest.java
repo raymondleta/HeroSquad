@@ -26,7 +26,7 @@ public class HeroTest {
     @Test
     public void Hero_instantiatesWithWeakness_String() {
         Hero myHero = new Hero("Batman", 50,"Running", "Everything", "Male");
-        assertEquals("Eberything", myHero.getWeakness());
+        assertEquals("Everything", myHero.getWeakness());
     }
     @Test
     public void Hero_instantiatesWithGender_String() {
@@ -52,6 +52,13 @@ public class HeroTest {
         Hero.clear();  // Remember, the test will fail without this line! We need to empty leftover Tasks from previous tests!
         Hero myHero = new Hero("Jon Jon", 999, "Telepathy","Strength","Martian");
         assertEquals(1, myHero.getId());
+    }
+    @Test
+    public void find_returnsTaskWithSameId_secondTask() {
+        Hero.clear();
+        Hero firstHero = new Hero("Batman", 40,"Smart","No super powers","Male");
+        Hero secondHero = new Hero("Superman", 42,"Superstrength","Kryptonite","Male");
+        assertEquals(Hero.find(secondHero.getId()), secondHero);
     }
 
 

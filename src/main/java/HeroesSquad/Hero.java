@@ -20,6 +20,9 @@ public class Hero {
         instances.add(this);
         Id = instances.size();
     }
+    public static Hero find(int id) {
+        return instances.get(id - 1);
+    }
 
     public String getName() {
         return name;
@@ -49,4 +52,5 @@ public class Hero {
     public int getId() {
         return Id;
     }
+
 }
