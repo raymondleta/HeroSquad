@@ -47,6 +47,12 @@ public class HeroTest {
         Hero.clear();
         assertEquals(Hero.all().size(), 0);
     }
+    @Test
+    public void getId_tasksInstantiateWithAnID_1() {
+        Hero.clear();  // Remember, the test will fail without this line! We need to empty leftover Tasks from previous tests!
+        Hero myHero = new Hero("Jon Jon", 999, "Telepathy","Strength","Martian");
+        assertEquals(1, myHero.getId());
+    }
 
 
 }
