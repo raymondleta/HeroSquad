@@ -25,16 +25,21 @@
     <button type="submit" class="btn btn-default">Add Hero</button>
 </form>
 
+
 <h1>Hero list!</h1>
-#if ($hero)
-#foreach ($hero in $heroes)
-<p>Created Hero</p>
-<p>Name: $hero.getName()</p>
-<p>Age: $hero.getAge()</p>
-<p>Special power: $hero.getSpecialPower()</p>
-<p>Weakness: $hero.getWeakness()</p>
-<p>Gender: $hero.getGender()</p>
-#end
+
+#if ($heroes)
+<ul>
+    #foreach ($hero in $heroes)
+    <li>
+    <p>Name: $hero.getName()<p>
+    <p>Age: $hero.getAge()</p>
+    <p>Special power: $hero.getSpecialPower()</p>
+    <p>Weakness: $hero.getWeakness()</p>
+    <p>Gender: $hero.getGender()</p>
+    </li>
+    #end
+</ul>
 #else
-<p>No hero created!</p>
+<p>No Heroes!</p>
 #end

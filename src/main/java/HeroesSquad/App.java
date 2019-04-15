@@ -27,7 +27,7 @@ public class App {
 
             ArrayList<Hero> heroes = request.session().attribute("heroes");
             if (heroes == null) {
-                heroes = new ArrayList<Hero>();
+                heroes = new ArrayList<>();
                 request.session().attribute("heroes", heroes);
             }
 
@@ -37,7 +37,7 @@ public class App {
             String weakness = request.queryParams("weakness");
             String gender = request.queryParams("gender");
             Hero newHero = new Hero(name, Integer.parseInt(age), specialPower, weakness, gender);
-            request.session().attribute("hero", newHero);
+            heroes.add(newHero);
 
             model.put("template", "templates/success.vtl");
             return new ModelAndView(model, layout);

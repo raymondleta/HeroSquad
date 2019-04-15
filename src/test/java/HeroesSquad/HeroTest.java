@@ -34,5 +34,19 @@ public class HeroTest {
         assertEquals("Male", myHero.getGender());
     }
 
+    @Test
+    public void all_returnsAllInstancesOfHero_true() {
+        Hero firstHero = new Hero("Superman", 99, "Strength", "Kryptonite", "Martian");
+        Hero secondHero = new Hero("Wonderwoman",50, "SuperStrength","Superman", "Female");
+        assertEquals(true, Hero.all().contains(firstHero));
+        assertEquals(true, Hero.all().contains(secondHero));
+    }
+    @Test
+    public void clear_emptiesAllHeroesFromArrayList_0() {
+        Hero myHero = new Hero("Flash",20, "Superspeed", "Zoom","Male");
+        Hero.clear();
+        assertEquals(Hero.all().size(), 0);
+    }
+
 
 }
