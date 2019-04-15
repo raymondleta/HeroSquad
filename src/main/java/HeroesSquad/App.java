@@ -4,6 +4,7 @@
 package HeroesSquad;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.ArrayList;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
 import static spark.Spark.*;
@@ -17,11 +18,18 @@ public class App {
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             model.put("template", "templates/index.vtl");
+            model.put("heroes", request.session().attribute("heroes"));
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
         post("/heroes", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
+
+            ArrayList<Hero> heroes = request.session().attribute("heroes");
+            if (heroes == null) {
+                heroes = new ArrayList<Hero>();
+                request.session().attribute("heroes", heroes);
+            }
 
             String name = request.queryParams("name");
             String age = request.queryParams("age");
@@ -35,11 +43,5 @@ public class App {
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
-        get("/", (request, response) -> {
-            Map<String, Object> model = new HashMap<String, Object>();
-            model.put("hero", request.session().attribute("hero"));
-            model.put("template", "templates/index.vtl");
-            return new ModelAndView(model, layout);
-        }, new VelocityTemplateEngine());
     }
 }
