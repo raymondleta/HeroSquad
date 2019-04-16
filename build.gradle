@@ -30,5 +30,8 @@ dependencies {
     compile group: 'org.apache.velocity', name: 'velocity', version: '1.7'
 }
 
+defaultTasks = ['clean'];
+task stage(dependsOn: ['clean', 'installDist'])
+
 // Define the main class for the application
 mainClassName = 'HeroesSquad.App'
