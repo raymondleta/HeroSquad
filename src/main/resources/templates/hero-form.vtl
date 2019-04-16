@@ -4,17 +4,27 @@
 <p>Add a new Hero:</p>
 
 <form action="/heroes" method="post">
-    <label for="name">Name</label>
-    <input id="name" name="name" type="text">
+    <input id="squadId" name="squadId" type="hidden" value="$squad.getId()">
+    <div class="form-group">
+        <label for="name">Hero Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Enter name">
+    </div>
 
-    <label for="age">Age</label>
-    <input id="age" name="age" type="number">
+    <div class="form-group">
+        <label for="name">Hero Age</label>
+        <input type="number" class="form-control" id="age" aria-describedby="ageHelp" placeholder="Enter Age">
+    </div>
 
-    <label for="specialPower">Special Power</label>
-    <input id="specialPower" name="specialPower" type="text">
+    <div class="form-group">
+        <label for="specialPower">Special Power</label>
+        <input type="text" class="form-control" id="specialPower" aria-describedby="powerHelp" placeholder="Special Power">
+    </div>
 
-    <label for="weakness">Weakness</label>
-    <input id="weakness" name="weakness" type="text">
+    <div class="form-group">
+        <label for="weakness">Weakness</label>
+        <input type="text" class="form-control" id="weakness" aria-describedby="weaknessHelp" placeholder="Weakness">
+        <small id="weaknessHelp" class="form-text text-muted">Here lies the true power</small>
+    </div>
 
 
     <select id="gender" name="gender" >
@@ -22,7 +32,8 @@
         <option value="Female">Female</option>
         <option value="Martian">Martian</option>
     </select>
+    <br>
 
-    <button type="submit" class="btn btn-default">Add Hero</button>
+    <button type="submit" class="btn btn-warning">Create</button>
 </form>
 </div>
